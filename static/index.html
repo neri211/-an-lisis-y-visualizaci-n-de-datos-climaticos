@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Datos Climáticos</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Análisis de Datos Climáticos</h1>
+            <p>Visualización y análisis de datos meteorológicos en tiempo real</p>
+            
+            <div class="search-box">
+                <input type="text" id="city-input" placeholder="Ingresa una ciudad..." value="Madrid">
+                <button id="search-btn">Buscar</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div id="error-message" class="error" style="display: none;"></div>
+        
+        <div id="current-weather-section" class="card" style="display: none;">
+            <h2>Clima Actual</h2>
+            <div class="current-weather">
+                <img id="weather-icon" class="weather-icon" src="" alt="Weather Icon">
+                <div id="temperature" class="temperature"></div>
+                <div id="weather-description"></div>
+                <div class="weather-details">
+                    <div class="detail-item">
+                        <span>Sensación térmica:</span>
+                        <span id="feels-like"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Humedad:</span>
+                        <span id="humidity"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Presión:</span>
+                        <span id="pressure"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Viento:</span>
+                        <span id="wind-speed"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard">
+            <div class="card">
+                <h2>Pronóstico de Temperatura</h2>
+                <div class="chart-container">
+                    <canvas id="forecast-chart"></canvas>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Estadísticas</h2>
+                <div id="stats-container" class="stats-grid"></div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Datos Históricos (Últimos 30 días)</h2>
+            <div class="chart-container">
+                <canvas id="historical-chart"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Aplicación de análisis de datos climáticos &copy; 2023</p>
+            <p class="demo-notice" id="demo-notice" style="display: none;">
+                Modo demostración: usando datos simulados. 
+                <a href="#" id="api-key-link">Agregar API key de OpenWeatherMap</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
